@@ -1,1 +1,1 @@
-# local_devnet
+# devnet-local-setup
