@@ -40,12 +40,13 @@ Don't forget to confirm transaction. In the following step json-Object being par
 
 ```sh
 # get the output of the tx
+# this step requires jq (sudo apt install jq)
 COLLATERAL_OUTPUT=$(dash-cli masternode outputs | jq .\"${COLLATERAL_HASH}\" | tr -d '"')
 
 # generate bls keys
 BLS_KEYS=$(dash-cli bls generate)
 
-# this step requires jq (sudo apt install jq)
+# this step requires also jq
 SECRET_KEY=$(echo ${BLS_KEYS} | jq ."secret" | tr -d '"')
 PUBLIC_KEY=$(echo ${BLS_KEYS} | jq ."public" | tr -d '"')
 
