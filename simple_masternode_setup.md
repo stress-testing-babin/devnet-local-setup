@@ -32,6 +32,9 @@ Another option then sending funds to a address of the masternode it is also poss
 COLLATERAL_ADDRESS=$(dash-cli getnewaddress)
 COLLATERAL_HASH=$(dash-cli sendtoaddress ${COLLATERAL_ADDRESS} 1000)
 
+# lock collateral transaction hash
+dash-cli lockunspent false "[{\"txid\":\"$COLLATERAL_HASH\",\"vout\":1}]"
+
 # => "Confirm the transaction through mining"
 #########################################################################################
 ```
